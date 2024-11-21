@@ -10,7 +10,7 @@ Hint: The regression model is
 $$ y_{it} = \alpha_0 + \alpha_L l_{it} + \alpha_K k_{it} + \gamma_t + u_{it} $$
 where $y_{it}$ is the log of sales, $l_{it}$ is the log of labor, $k_{it}$ is the log of capital, and $\gamma_t$ are time dummies. Before running the regression, you need to do the transformation of the variables into logs. Then, you need to specify the time dummies and run the regression with the time dummies.
 
-(b) Test the null hypothesis $\alpha_L = \alpha_K = 1$. Comment on the results.
+(b) Test the null hypothesis $\alpha_L + \alpha_K = 1$. Comment on the results.
 
 Hint: You can use the Wald test. In Stata, you can use the `test` command after running the regression. In R, you can use the `waldtest` function.
 This hypothesis is about the returns to scale.
@@ -62,4 +62,6 @@ with median, percentile 5, and percentile 95 TFPs, respectively. Comment the res
 
 Hint: the $W_L$ is the price for labor, same as $w$; The $W_K$ is the price for capital, same as $r$.
 You need to **calculate** the estimated marginal cost based on the estimation of parameters inlcuding $\alpha_L$, $\alpha_K$, $A$, and the data of $Y$ by the formula of marginal cost that drives from the Cobb-Douglas production function. Notice the transformation of the variables from logs to original levels.
-Then plot a graph where the horizontal axis is the output $Y$ and the vertical axis is the marginal cost $MC$. You need to plot three lines, one for each of the median, the percentile 5, and the percentile 95 TFPs.
+Then plot a graph where the horizontal axis is the output $Y$ and the vertical axis is the marginal cost $MC$. 
+
+You should have first summarized the estimated total factor productivity (TFP) for each firm, get the median, the percentile 5, and the percentile 95 in the distribution of TFP, then apply the formula of marginal cost to get the marginal cost for each of the three TFP levels. Finally, plot the graph with the three marginal cost functions. In the graph, the horizontal axis is the output $Y$ and the vertical axis is the marginal cost $MC$ under the three TFP levels.
