@@ -65,3 +65,46 @@ You need to **calculate** the estimated marginal cost based on the estimation of
 Then plot a graph where the horizontal axis is the output $Y$ and the vertical axis is the marginal cost $MC$. 
 
 You should have first summarized the estimated total factor productivity (TFP) for each firm, get the median, the percentile 5, and the percentile 95 in the distribution of TFP, then apply the formula of marginal cost to get the marginal cost for each of the three TFP levels. Finally, plot the graph with the three marginal cost functions. In the graph, the horizontal axis is the output $Y$ and the vertical axis is the marginal cost $MC$ under the three TFP levels.
+
+## Panal Data Setting
+
+Notice that the dataset is a panel data, where the first dimension is the firm and the second dimension is the time(year). A recommendation is to set the index of the dataset as the firm id and the time id. Then run the regression with the panel data setting. It is most efficient to run the regression with the panel data setting, rather than running the regression for set the identification dummy variables for the firm and the time.
+
+In Stata, you can use the `xtset` command to set the panel data setting. 
+
+```stata
+xtset firmid timeid
+```
+
+where `firmid` is the firm id and `timeid` is the time id.
+
+In R, you can use the `plm` package to set the panel data setting.
+
+```r
+pdata <- pdata.frame(data, index = c("firmid", "timeid"))
+```
+
+where `firmid` is the firm id and `timeid` is the time id.
+
+In python, you can use the `pandas` package to set the panel data setting.
+
+```python
+data.set_index(["firmid", "timeid"], inplace=True)
+```
+
+where `firmid` is the firm id and `timeid` is the time id.
+
+Theoretically, the regression results from the panel data setting should be the same as the regression results from setting the identification dummy variables for the firm and the time.
+
+## Comparison of Coefficients on Log Labor and Log Capital
+
+Below is a comparison of the coefficients on log labor and log capital obtained from the OLS and Fixed Effects models in R and Python.
+
+| Model                | Language | Coefficient on Log Labor ($\alpha_L$) | Coefficient on Log Capital ($\alpha_K$) |
+|----------------------|----------|---------------------------------------|-----------------------------------------|
+| Panel Fixed Effects | R        | 0.5578                                  | 0.4322                                    |
+| Panel Fixed Effects  | Python   | 0.5606                                  | 0.4299                                    |
+| OLS with Time Dummies       | R        | 0.5578                                  | 0.4322                                    |
+| OLS with Time Dummies       | Python   | 0.5579                                  | 0.4323                                    |
+
+The script for the comparison of coefficients on log labor and log capital is available in the [ps3.R](ps3.R) and [ps3.ipynb](ps3.ipynb) files.
