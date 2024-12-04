@@ -51,10 +51,17 @@ $$ Y = A \cdot L^{\alpha_L} \cdot K^{\alpha_K} $$
 Where:
 
 - $Y$ is the output
-- $A$ is the total factor productivity
+- $A$ is the total factor productivity (TFP)
 - $L$ is labor input
 - $K$ is capital input
 - $\alpha$ and $\beta$ are the output elasticities of labor and capital, respectively
+
+#### Features of Cobb-Douglas Production Function
+
+- **Constant Returns to Scale (CRS)**: If $\alpha_L + \alpha_K = 1$, the production function exhibits constant returns to scale.
+- **Increasing Returns to Scale (IRS)**: If $\alpha_L + \alpha_K > 1$, the production function exhibits increasing returns to scale.
+- **Decreasing Returns to Scale (DRS)**: If $\alpha_L + \alpha_K < 1$, the production function exhibits decreasing returns to scale.
+
 
 This production function does not have a linear relationship between the dependent variable $Y$ and the independent variables $L$ and $K$. So we cannot directly estimate the parameters $\alpha_L$ and $\alpha_K$ using OLS regression.
 
